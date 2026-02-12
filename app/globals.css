@@ -1,26 +1,96 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
+  /* LG Electronics Theme Colors */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111111;
+
+  /* Brand Colors */
+  --lg-red: #A50034;
+  --lg-red-dark: #8a002b;
+  --lg-gray: #666666;
+  --lg-light-gray: #e6e6e6;
+
+  /* UI Colors */
+  --surface: #ffffff;
+  --surface-light: #f4f6f8;
+  --border-color: #e5e7eb;
+
+  /* Functional Colors */
+  --neon-cyan: #A50034;
+  /* Mapping old neon variables to brand color for compatibility */
+  --neon-purple: #A50034;
+  --neon-pink: #A50034;
+  --neon-blue: #333333;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-lg-red: var(--lg-red);
+  --color-lg-red-dark: var(--lg-red-dark);
+  --color-lg-gray: var(--lg-gray);
+  --color-lg-light-gray: var(--lg-light-gray);
+  --color-surface: var(--surface);
+  --color-surface-light: var(--surface-light);
+  --color-border-color: var(--border-color);
+
+  /* Mapping old Neo-colors to new palette to prevent crashes during migration */
+  --color-neon-cyan: var(--lg-red);
+  --color-neon-purple: var(--lg-red);
+  --color-neon-pink: var(--lg-red);
+  --color-neon-blue: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), "LG Smart", "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+/* Custom Utilities */
+.text-lg-red {
+  color: var(--lg-red);
+}
+
+.bg-lg-red {
+  background-color: var(--lg-red);
+}
+
+.btn-primary {
+  background-color: var(--lg-red);
+  color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--lg-red-dark);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar - Minimalist */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
 }
