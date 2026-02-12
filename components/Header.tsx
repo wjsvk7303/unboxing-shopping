@@ -159,8 +159,6 @@ export default function Header() {
 
             <div className="flex items-center gap-4 text-xs font-medium text-gray-500">
               <Link href="#" className="hover:text-lg-red">회사소개</Link>
-              <span className="text-gray-300">|</span>
-              <Link href="#" className="hover:text-lg-red">사업자몰</Link>
             </div>
           </div>
 
